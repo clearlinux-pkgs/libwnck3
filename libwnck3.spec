@@ -4,7 +4,7 @@
 #
 Name     : libwnck3
 Version  : 3.14.1
-Release  : 1
+Release  : 2
 URL      : https://download.gnome.org/core/3.20/3.20.2/sources/libwnck-3.14.1.tar.xz
 Source0  : https://download.gnome.org/core/3.20/3.20.2/sources/libwnck-3.14.1.tar.xz
 Summary  : Window Navigator Construction Kit library
@@ -93,7 +93,7 @@ locales components for the libwnck3 package.
 
 %build
 export LANG=C
-%configure --disable-static
+%configure --disable-static -program-suffix=-3
 make V=1  %{?_smp_mflags}
 
 %check
@@ -113,8 +113,8 @@ rm -rf %{buildroot}
 
 %files bin
 %defattr(-,root,root,-)
-/usr/bin/wnck-urgency-monitor
-/usr/bin/wnckprop
+/usr/bin/wnck-urgency-monitor-3
+/usr/bin/wnckprop-3
 
 %files data
 %defattr(-,root,root,-)
