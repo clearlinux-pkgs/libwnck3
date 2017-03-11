@@ -1,8 +1,43 @@
-=============
-Version 3.14.1
-=============
+==============
+Version 3.20.1
+==============
 
-  Release bump to 3.14.1
+  Fixes
+
+  * tasklist: ignore size_allocate with invalid size (Alberts Muktupāvels)
+  * tasklist: queue resize on button not on its content (Alberts Muktupāvels)
+  * workspace-accessible: drop obsolete GTK_CHECK_VERSION (Alberts Muktupāvels)
+  * workspace-accessible: don't use deprecated atk_component_get_position
+    (Alberts Muktupāvels)
+  * tasklist: don't use deprecated GtkMisc (Alberts Muktupāvels)
+  * selector: don't use deprecated GtkMisc (Alberts Muktupāvels)
+  * wnckprop: don't use deprecated gdk_cursor_new (Alberts Muktupāvels)
+  * test-wnck: don't use deprecated gtk_tree_view_set_rules_hint (Alberts
+    Muktupāvels)
+
+==============
+Version 3.20.0
+==============
+
+  Fixes
+
+  * xutils: add error trap in try_pixmap_and_mask (Alberts Muktupāvel)
+  * Window: ignore unhandled non-_NET_WM actions
+  * ActionMenu: Use gtk_label_set_text_with_mnemonic instead of
+    gtk_label_set_text (Andrea Azzarone)
+  * tasklist: set css name (Alberts Muktupāvel)
+  * selector: set css name (Alberts Muktupāvel)
+  * pager: set css name Alberts Muktupāvels
+  * configure.ac: redefine introspection dirs using proper prefixes
+
+  Translators
+
+  * Dušan Kazi (sk)
+  * Trần Ngọc Quân (vi)
+
+==============
+Version 3.18.0
+==============
 
   Fixes
 
@@ -26,11 +61,9 @@ Version 3.14.1
   * Piotr Drąg (pl)
   * Samir Ribic (bs)
 
-=============
+==============
 Version 3.14.0
-=============
-
-  Release bump to 3.14.0
+==============
 
   Fixes
 
