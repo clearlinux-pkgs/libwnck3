@@ -4,16 +4,17 @@
 #
 Name     : libwnck3
 Version  : 3.20.1
-Release  : 3
+Release  : 4
 URL      : https://download.gnome.org/sources/libwnck/3.20/libwnck-3.20.1.tar.xz
 Source0  : https://download.gnome.org/sources/libwnck/3.20/libwnck-3.20.1.tar.xz
 Summary  : Window Navigator Construction Kit library
 Group    : Development/Tools
-License  : GPL-2.0 LGPL-2.0
+License  : LGPL-2.0
 Requires: libwnck3-bin
 Requires: libwnck3-lib
 Requires: libwnck3-doc
 Requires: libwnck3-locales
+Requires: libwnck3-data
 BuildRequires : docbook-xml
 BuildRequires : gettext
 BuildRequires : gobject-introspection-dev
@@ -36,9 +37,18 @@ for writing pagers and taskslists and stuff.
 %package bin
 Summary: bin components for the libwnck3 package.
 Group: Binaries
+Requires: libwnck3-data
 
 %description bin
 bin components for the libwnck3 package.
+
+
+%package data
+Summary: data components for the libwnck3 package.
+Group: Data
+
+%description data
+data components for the libwnck3 package.
 
 
 %package dev
@@ -46,6 +56,7 @@ Summary: dev components for the libwnck3 package.
 Group: Development
 Requires: libwnck3-lib
 Requires: libwnck3-bin
+Requires: libwnck3-data
 Provides: libwnck3-devel
 
 %description dev
@@ -63,6 +74,7 @@ doc components for the libwnck3 package.
 %package lib
 Summary: lib components for the libwnck3 package.
 Group: Libraries
+Requires: libwnck3-data
 
 %description lib
 lib components for the libwnck3 package.
@@ -81,7 +93,7 @@ locales components for the libwnck3 package.
 
 %build
 export LANG=C
-export SOURCE_DATE_EPOCH=1489247136
+export SOURCE_DATE_EPOCH=1491324418
 %configure --disable-static -program-suffix=-3
 make V=1  %{?_smp_mflags}
 
@@ -93,7 +105,7 @@ export no_proxy=localhost
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1489247136
+export SOURCE_DATE_EPOCH=1491324418
 rm -rf %{buildroot}
 %make_install
 %find_lang libwnck-3.0
@@ -105,6 +117,11 @@ rm -rf %{buildroot}
 %defattr(-,root,root,-)
 /usr/bin/wnck-urgency-monitor-3
 /usr/bin/wnckprop-3
+
+%files data
+%defattr(-,root,root,-)
+/usr/lib64/girepository-1.0/Wnck-3.0.typelib
+/usr/share/gir-1.0/*.gir
 
 %files dev
 %defattr(-,root,root,-)
@@ -121,10 +138,8 @@ rm -rf %{buildroot}
 /usr/include/libwnck-3.0/libwnck/window.h
 /usr/include/libwnck-3.0/libwnck/wnck-enum-types.h
 /usr/include/libwnck-3.0/libwnck/workspace.h
-/usr/lib64/girepository-1.0/Wnck-3.0.typelib
 /usr/lib64/libwnck-3.so
 /usr/lib64/pkgconfig/libwnck-3.0.pc
-/usr/share/gir-1.0/*.gir
 
 %files doc
 %defattr(-,root,root,-)
