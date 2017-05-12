@@ -1,1 +1,4 @@
-major3
+# specify a major version
+major = 3
+# additional alias of package name
+alias = libwnck
