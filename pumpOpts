@@ -1,4 +1,1 @@
-# specify a major version
-major_version = 3
-# additional alias of package name
-alias = libwnck
+devel_version = odd
