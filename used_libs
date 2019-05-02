@@ -1,6 +1,5 @@
 libX11.so.6
 libXRes.so.1
-libXrender.so.1
 libatk-1.0.so.0
 libc.so.6
 libcairo.so.2
