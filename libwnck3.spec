@@ -4,7 +4,7 @@
 #
 Name     : libwnck3
 Version  : 3.32.0
-Release  : 15
+Release  : 16
 URL      : https://download.gnome.org/sources/libwnck/3.32/libwnck-3.32.0.tar.xz
 Source0  : https://download.gnome.org/sources/libwnck/3.32/libwnck-3.32.0.tar.xz
 Summary  : Library to manage X windows and workspaces (via pagers, tasklists, etc.)
@@ -102,7 +102,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1556818434
+export SOURCE_DATE_EPOCH=1557018829
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
