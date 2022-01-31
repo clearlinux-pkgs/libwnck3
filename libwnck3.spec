@@ -4,7 +4,7 @@
 #
 Name     : libwnck3
 Version  : 40.0
-Release  : 22
+Release  : 23
 URL      : https://download.gnome.org/sources/libwnck/40/libwnck-40.0.tar.xz
 Source0  : https://download.gnome.org/sources/libwnck/40/libwnck-40.0.tar.xz
 Summary  : Window Navigator Construction Kit library
