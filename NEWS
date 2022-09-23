@@ -1,16 +1,23 @@
 ==============
-Version 40.1
+Version 43.0
 ==============
+
+  Features
+
+  * WnckHandle is now public and should be used for all the operations.
+    Usage of all the older entry-point getters is now deprecated.
+    (Alberts Muktupāvels)
 
   Fixes
 
-  * Revert "pager: do not change workspace size from size_allocate"
-    (Alberts Muktupāvels)
+  * Get the correct PID for clients inside PID namespaces (Ryan Gonzalez)
+  * icon-cache: remove support for KWM_WIN_ICON (Alberts Muktupāvels)
 
   Translations
 
   * Anders Jonsson (sv)
-
+  * Wenbin Lv (zh_CN)
+  * Zurab Kargareteli (ka)
 
 ==============
 Version 40.0
