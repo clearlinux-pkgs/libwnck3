@@ -5,7 +5,7 @@
 #
 Name     : libwnck3
 Version  : 43.0
-Release  : 35
+Release  : 36
 URL      : https://download.gnome.org/sources/libwnck/43/libwnck-43.0.tar.xz
 Source0  : https://download.gnome.org/sources/libwnck/43/libwnck-43.0.tar.xz
 Summary  : Window Navigator Construction Kit library
@@ -13,7 +13,6 @@ Group    : Development/Tools
 License  : LGPL-2.0
 Requires: libwnck3-bin = %{version}-%{release}
 Requires: libwnck3-data = %{version}-%{release}
-Requires: libwnck3-filemap = %{version}-%{release}
 Requires: libwnck3-lib = %{version}-%{release}
 Requires: libwnck3-license = %{version}-%{release}
 Requires: libwnck3-locales = %{version}-%{release}
@@ -36,7 +35,6 @@ Summary: bin components for the libwnck3 package.
 Group: Binaries
 Requires: libwnck3-data = %{version}-%{release}
 Requires: libwnck3-license = %{version}-%{release}
-Requires: libwnck3-filemap = %{version}-%{release}
 
 %description bin
 bin components for the libwnck3 package.
@@ -63,20 +61,11 @@ Requires: libwnck3 = %{version}-%{release}
 dev components for the libwnck3 package.
 
 
-%package filemap
-Summary: filemap components for the libwnck3 package.
-Group: Default
-
-%description filemap
-filemap components for the libwnck3 package.
-
-
 %package lib
 Summary: lib components for the libwnck3 package.
 Group: Libraries
 Requires: libwnck3-data = %{version}-%{release}
 Requires: libwnck3-license = %{version}-%{release}
-Requires: libwnck3-filemap = %{version}-%{release}
 
 %description lib
 lib components for the libwnck3 package.
@@ -110,15 +99,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1680039484
+export SOURCE_DATE_EPOCH=1683052823
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -Ofast -falign-functions=32 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -fno-semantic-interposition -g1 -gno-column-info -gno-variable-location-views -gz "
-export FCFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -fno-semantic-interposition -g1 -gno-column-info -gno-variable-location-views -gz "
-export FFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -fno-semantic-interposition -g1 -gno-column-info -gno-variable-location-views -gz "
-export CXXFLAGS="$CXXFLAGS -O3 -Ofast -falign-functions=32 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -fno-semantic-interposition -g1 -gno-column-info -gno-variable-location-views -gz "
+export CFLAGS="$CFLAGS -O3 -Ofast -falign-functions=32 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -fno-semantic-interposition -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FCFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -fno-semantic-interposition -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -fno-semantic-interposition -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export CXXFLAGS="$CXXFLAGS -O3 -Ofast -falign-functions=32 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -fno-semantic-interposition -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --libdir=lib64 --prefix=/usr --buildtype=plain   builddir
 ninja -v -C builddir
 CFLAGS="$CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 -O3" CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 " LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3" meson --libdir=lib64 --prefix=/usr --buildtype=plain   builddiravx2
@@ -141,9 +130,10 @@ mv %{buildroot}/usr/bin/wnckprop %{buildroot}/usr/bin/wnckprop-3
 
 %files bin
 %defattr(-,root,root,-)
+/V3/usr/bin/wnck-urgency-monitor
+/V3/usr/bin/wnckprop
 /usr/bin/wnck-urgency-monitor-3
 /usr/bin/wnckprop-3
-/usr/share/clear/optimized-elf/bin*
 
 %files data
 %defattr(-,root,root,-)
@@ -152,6 +142,7 @@ mv %{buildroot}/usr/bin/wnckprop %{buildroot}/usr/bin/wnckprop-3
 
 %files dev
 %defattr(-,root,root,-)
+/V3/usr/lib64/libwnck-3.so
 /usr/include/libwnck-3.0/libwnck/application.h
 /usr/include/libwnck-3.0/libwnck/class-group.h
 /usr/include/libwnck-3.0/libwnck/libwnck.h
@@ -166,18 +157,13 @@ mv %{buildroot}/usr/bin/wnckprop %{buildroot}/usr/bin/wnckprop-3
 /usr/include/libwnck-3.0/libwnck/wnck-enum-types.h
 /usr/include/libwnck-3.0/libwnck/wnck-handle.h
 /usr/include/libwnck-3.0/libwnck/workspace.h
-/usr/lib64/glibc-hwcaps/x86-64-v3/libwnck-3.so
 /usr/lib64/libwnck-3.so
 /usr/lib64/pkgconfig/libwnck-3.0.pc
 
-%files filemap
-%defattr(-,root,root,-)
-/usr/share/clear/filemap/filemap-libwnck3
-
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/glibc-hwcaps/x86-64-v3/libwnck-3.so.0
-/usr/lib64/glibc-hwcaps/x86-64-v3/libwnck-3.so.0.3.0
+/V3/usr/lib64/libwnck-3.so.0
+/V3/usr/lib64/libwnck-3.so.0.3.0
 /usr/lib64/libwnck-3.so.0
 /usr/lib64/libwnck-3.so.0.3.0
 
