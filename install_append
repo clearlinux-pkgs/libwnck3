@@ -1,2 +1,5 @@
+mkdir -p %{buildroot}/V3/usr/bin
 mv %{buildroot}/usr/bin/wnck-urgency-monitor %{buildroot}/usr/bin/wnck-urgency-monitor-3
 mv %{buildroot}/usr/bin/wnckprop %{buildroot}/usr/bin/wnckprop-3
+mv %{buildroot}-v3/usr/bin/wnck-urgency-monitor %{buildroot}/V3//usr/bin/wnck-urgency-monitor-3
+mv %{buildroot}-v3/usr/bin/wnckprop %{buildroot}/V3//usr/bin/wnckprop-3

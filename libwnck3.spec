@@ -5,7 +5,7 @@
 #
 Name     : libwnck3
 Version  : 43.0
-Release  : 36
+Release  : 37
 URL      : https://download.gnome.org/sources/libwnck/43/libwnck-43.0.tar.xz
 Source0  : https://download.gnome.org/sources/libwnck/43/libwnck-43.0.tar.xz
 Summary  : Window Navigator Construction Kit library
@@ -99,7 +99,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1683052823
+export SOURCE_DATE_EPOCH=1683053972
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -120,8 +120,11 @@ DESTDIR=%{buildroot}-v3 ninja -C builddiravx2 install
 DESTDIR=%{buildroot} ninja -C builddir install
 %find_lang libwnck-3.0
 ## install_append content
+mkdir -p %{buildroot}/V3/usr/bin
 mv %{buildroot}/usr/bin/wnck-urgency-monitor %{buildroot}/usr/bin/wnck-urgency-monitor-3
 mv %{buildroot}/usr/bin/wnckprop %{buildroot}/usr/bin/wnckprop-3
+mv %{buildroot}-v3/usr/bin/wnck-urgency-monitor %{buildroot}/V3//usr/bin/wnck-urgency-monitor-3
+mv %{buildroot}-v3/usr/bin/wnckprop %{buildroot}/V3//usr/bin/wnckprop-3
 ## install_append end
 /usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
@@ -130,8 +133,8 @@ mv %{buildroot}/usr/bin/wnckprop %{buildroot}/usr/bin/wnckprop-3
 
 %files bin
 %defattr(-,root,root,-)
-/V3/usr/bin/wnck-urgency-monitor
-/V3/usr/bin/wnckprop
+/V3/usr/bin/wnck-urgency-monitor-3
+/V3/usr/bin/wnckprop-3
 /usr/bin/wnck-urgency-monitor-3
 /usr/bin/wnckprop-3
 
