@@ -5,7 +5,7 @@
 #
 Name     : libwnck3
 Version  : 43.0
-Release  : 37
+Release  : 38
 URL      : https://download.gnome.org/sources/libwnck/43/libwnck-43.0.tar.xz
 Source0  : https://download.gnome.org/sources/libwnck/43/libwnck-43.0.tar.xz
 Summary  : Window Navigator Construction Kit library
@@ -99,7 +99,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1683053972
+export SOURCE_DATE_EPOCH=1685633133
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -145,7 +145,6 @@ mv %{buildroot}-v3/usr/bin/wnckprop %{buildroot}/V3//usr/bin/wnckprop-3
 
 %files dev
 %defattr(-,root,root,-)
-/V3/usr/lib64/libwnck-3.so
 /usr/include/libwnck-3.0/libwnck/application.h
 /usr/include/libwnck-3.0/libwnck/class-group.h
 /usr/include/libwnck-3.0/libwnck/libwnck.h
@@ -165,7 +164,6 @@ mv %{buildroot}-v3/usr/bin/wnckprop %{buildroot}/V3//usr/bin/wnckprop-3
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libwnck-3.so.0
 /V3/usr/lib64/libwnck-3.so.0.3.0
 /usr/lib64/libwnck-3.so.0
 /usr/lib64/libwnck-3.so.0.3.0
